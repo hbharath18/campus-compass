@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Compass 🧭 — Amrita Amaravati</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:   #000000; /* Updated to your exact pure black color shift */
+  --bg2:  #0a0a0a; /* Dark velvet gray for card bases to lift them off pure black */
+  --bg3:  #141414;
+  --bg4:  #1e1e1e;
+  --text: #eeebe6;
+  --muted: #888580;
+  --faint: #333333;
+  --yellow: #f3f70a; /* Updated to your exact neon yellow tweak */
+  --yellow-soft: rgba(243, 247, 10, 0.06);
+  --green: #5dba6f;
+  --red: #e05c5c;
+  --border: rgba(255, 255, 255, 0.045); /* Thinner border for high contrast against black */
+  --r: 16px; /* Slightly smoother curve radius matching image_96347f.jpg */
+  --rs: 10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body {
+  background: var(--bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a{text-decoration:none;color:inherit;}
+
+/* ── NAV ── */
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 20px; /* Floats it down slightly from the screen edge */
+  left: 50%;
+  transform: translateX(-50%); /* Centers the absolute pill perfectly */
+  z-index: 100;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  /* Dimensions matching the premium image sample layout */
+  width: calc(100% - 40px);
+  max-width: 1100px;
+  padding: 10px 24px;
+  border-radius: 100px; /* Makes the navbar capsule/pill shaped */
+  
+  /* ── EXTRA PRECISE GLASSMORPHISM ── */
+  background: rgba(20, 20, 20, 0.4); /* Subtle dark tint */
+  backdrop-filter: blur(14px); /* Frost effect over hero elements */
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Crisp reflection line */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+}
+.logo span { font-size: 18px; }
+
+.nav-pills { 
+  display: flex; 
+  gap: 8px; 
+  align-items: center; 
+}
+
+.nav-pills a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 100px;
+  transition: color .2s, background .2s;
+}
+.nav-pills a:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Custom "Join Now" style call-to-action to replicate reference images */
+.nav-cta {
+  background: var(--yellow) !important;
+  color: #111 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 14px rgba(245, 200, 66, 0.2);
+}
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh; /* Forces hero to occupy exactly 100% of the viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically centers your text layout */
+  align-items: flex-start; /* CRUCIAL: This aligns all child elements (h1, p, buttons) flush to the left */
+  text-align: left;
+  padding: 140px 32px 60px;
+  max-width: 100%; /* Expands container to edge of the screen */
+  margin: 0 auto;
+  
+  /* Full-screen background image with an adjustable brightness overlay */
+  background-image: linear-gradient(
+    rgba(20, 20, 20, 0.65), /* Adjust 0.65 to change text blending opacity */
+    rgba(20, 20, 20, 0.65)
+  ), url('Campus2.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #eeebe6; /* Keeps the text crisp and white */
+  margin-right:auto;
+  margin-bottom: 28px;
+
+  /* ── THE GLASS EFFECT ── */
+  background: rgba(255, 255, 255, 0.05); /* Semi-transparent white background */
+  backdrop-filter: blur(12px); /* Frosts and blurs the background image behind it */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.12); /* Ultra-thin light border to define the edge */
+  
+  /* Subtle drop shadow for depth */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); 
+}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--green);}
+.hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(42px, 7vw, 75px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  color: var(--text);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Styled to match the delicate "not just a" look from image_97287b.png */
+.hero h1 .intro-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(24px, 3.5vw, 36px);
+  color: #a8a5a0; /* Muted gray hue matching your theme */
+  letter-spacing: 0px;
+  display: block;
+  margin-bottom: 4px;
+  text-transform: lowercase;
+}
+
+/* ── FLASHING/SHIMMERING YELLOW TEXT ── */
+.hero h1 .hi {
+  color: var(--yellow);
+  position: relative;
+  display: inline-block;
+  
+  /* Creates a moving linear gradient clip that looks like a moving white sheen */
+  background: linear-gradient(
+    to right, 
+    #f3f70a 0%, 
+    #f3f70a 40%, 
+    #ffffff 50%, 
+    #f3f70a 60%, 
+    #f3f70a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* Triggers the loop indefinitely across a 3 second cycle */
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+.hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(15px, 2vw, 17px);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 620px; /* Limits width to replicate the clean 2-line break block */
+  margin: 0 0 36px; /* Centers the block since everything else is centered */
+  text-align: left;
+  
+  /* ── MATCHING DESIGN PARADIGM FROM IMAGE_97193E ── */
+  color: #b0adb4; /* Replicates that precise crisp, silver-gray hue */
+  letter-spacing: -0.3px; /* Tighter letter grouping */
+  text-transform: lowercase; /* Converts all input copy to lowercase automatically */
+}
+
+.hero-sub strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Keeps your action buttons pinned left right under your text */
+}
+/* Base Button Layout */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  padding: 12px 28px;
+  border-radius: 100px; /* Perfect capsule shape */
+  cursor: pointer;
+  overflow: hidden; /* Crucial: Keeps the moving white light clipped inside the button */
+  z-index: 1;
+  text-decoration: none;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ── THE MOVING GLOW BUTTON ── */
+.btn-yellow {
+  background: var(--yellow); /* Automatically inherits #f3f70a */
+  color: #000000;
+  
+  /* Adjusted shadow coloring array matching the highly vibrant new yellow hue */
+  box-shadow: 
+    0 4px 20px rgba(243, 247, 10, 0.35),
+    0 0 40px rgba(243, 247, 10, 0.12);
+}
+
+.btn-yellow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 80px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.9) 50%, /* Slightly cleaner opacity for moving white gloss */
+    rgba(255, 255, 255, 0) 100
+  );
+  transform: skewX(-25deg);
+  z-index: 2;
+  animation: sweep-glow 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+/* Ensure the text stays layered on top of the moving light beam */
+.btn-yellow span {
+  position: relative;
+  z-index: 3;
+}
+
+/* ── SWEEP ANIMATION KEYFRAMES ── */
+@keyframes sweep-glow {
+  0% {
+    left: -150%; /* Hidden on the left */
+  }
+  30% {
+    left: 150%; /* Sweeps completely across to the right within the first 30% of the time */
+  }
+  100% {
+    left: 150%; /* Pauses on the right for the rest of the loop to prevent it from flashing constantly */
+  }
+}
+
+/* Micro-interaction on hover */
+.btn-yellow:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 25px rgba(225, 255, 0, 0.6),
+    0 0 50px rgba(225, 255, 0, 0.3);
+}
+.btn:hover{transform:translateY(-2px);opacity:.9;}
+.btn-outline {
+  background: rgba(28, 28, 28, 0.75); /* Dark semi-translucent base */
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 100px; /* Capsule shape matching */
+}
+.btn-outline:hover {
+  background: rgba(41, 41, 41, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.hero-note{
+  margin-top:48px;padding-top:32px;
+  border-top:1px solid var(--border);
+  font-size:13px;color:var(--muted);
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.hero-stat{display:flex;align-items:center;gap:6px;}
+.hero-stat strong{color:var(--text);font-weight:600;font-size:15px;}
+
+/* ── SECTION WRAPPER ── */
+.wrap{max-width:860px;margin:0 auto;padding:0 32px;}
+.section{padding:60px 0;}
+.sec-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px;
+}
+.sec-tag::before{content:'';display:block;width:16px;height:2px;background:var(--yellow);border-radius:2px;}
+.sec-title{
+  font-family:'Poppins',sans-serif;
+  font-size:clamp(26px,4vw,38px);
+  font-weight:700;letter-spacing:-1px;
+  color:var(--text);margin-bottom:8px;line-height:1.15;
+}
+.sec-desc{
+  font-size:15px;color:var(--muted);
+  max-width:500px;line-height:1.7;
+  margin-bottom:36px;
+}
+.divider{height:1px;background:var(--border);margin:8px 0 40px;}
+
+/* ── ANNOUNCEMENTS COMPONENT ── */
+.announcement-box {
+  background-color: #050505; /* Slightly lifted off pure black background */
+  border: 1px dashed rgba(243, 247, 10, 0.2); /* Dotted border using your exact yellow accent */
+  border-radius: var(--r);
+  padding: 20px 24px;
+  margin-top: 20px;
+  margin-bottom: -20px; /* Pulls it tighter to the upcoming section */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.announcement-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Radar pulse animation for live effect */
+.live-pulse {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  background-color: var(--green);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.live-pulse::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  border-radius: 50%;
+  background-color: var(--green);
+  animation: radar 1.8s infinite ease-out;
+}
+
+@keyframes radar {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(3.5); opacity: 0; }
+}
+
+.announcement-text {
+  font-size: 13.5px;
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: -0.2px;
+}
+.announcement-text strong {
+  color: var(--yellow); /* Inherits your exact #f3f70a */
+  font-weight: 600;
+}
+
+.announcement-date {
+  font-size: 11px;
+  font-family: 'Poppins', sans-serif;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+@media(max-width: 600px) {
+  .announcement-box { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .announcement-date { margin-left: 20px; }
+}
+/* ── CARDS ── */
+.card {
+  position: relative;
+  background-color: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 28px;
+  overflow: hidden; /* Clips internal radial glows cleanly */
+  transition: border-color .25s ease, transform .2s ease;
+  z-index: 1;
+
+  /* ── MULTI-LAYERED TEXTURE GENERATION ── */
+  background-image: 
+    /* Layer 1: Ambient background radial glow to spotlight card typography */
+    radial-gradient(circle at 50% 100%, rgba(243, 247, 10, 0.04) 0%, transparent 70%),
+    /* Layer 2: Highly technical micro-grid pattern matching image_96347f.jpg */
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  
+  /* Dictates size density of grid texturing blocks */
+  background-size: 100% 100%, 14px 14px, 14px 14px;
+}
+
+/* Premium micro-interaction tracking focus points */
+.card:hover {
+  border-color: rgba(243, 247, 10, 0.25); /* Subtle neon border activation on hover */
+  transform: translateY(-1px);
+}
+.card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 19px; /* Increased slightly to match the bold presence in image_96347f.jpg */
+  font-weight: 700; /* Extra bold look */
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+/* ── THE LARGE CARD NUMBER STYLE FROM IMAGE_96347F ── */
+.card-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 52px; /* Large, commanding size */
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: #222222; /* Dark, muted gray that blends beautifully into the black card background */
+  display: block;
+  margin-bottom: 10px;
+}
+.card-body{font-size:13.5px;color:var(--muted);line-height:1.7;}
+.card-icon{font-size:26px;margin-bottom:12px;display:block;}
+
+/* ── GRID LAYOUTS ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.grid-auto{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+
+/* ── BRANCHES ── */
+.branch-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.pill{
+  font-size:12px;font-weight:500;
+  background:var(--bg4);border:1px solid var(--border);
+  color:var(--muted);padding:5px 13px;border-radius:100px;
+  font-family:'Inter',sans-serif;
+}
+.pill.y{background:var(--yellow-soft);border-color:rgba(245,200,66,0.25);color:var(--yellow);}
+
+/* ── LIST ROWS ── */
+.list-rows{display:flex;flex-direction:column;gap:0;}
+.list-row{
+  display:flex;align-items:center;gap:14px;
+  padding:13px 0;border-bottom:1px solid var(--border);
+}
+.list-row:last-child{border-bottom:none;}
+.row-icon{
+  width:36px;height:36px;flex-shrink:0;
+  background:var(--bg3);border-radius:9px;
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.row-name{font-size:14px;font-weight:500;color:var(--text);}
+.row-desc{font-size:12px;color:var(--muted);}
+.row-badge{
+  margin-left:auto;flex-shrink:0;
+  font-size:10.5px;font-weight:600;letter-spacing:.5px;
+  background:var(--bg4);color:var(--muted);
+  padding:3px 10px;border-radius:100px;
+}
+.row-badge.y{background:var(--yellow-soft);color:var(--yellow);}
+.row-badge.g{background:rgba(93,186,111,0.1);color:var(--green);}
+
+/* ── TIMELINE ── */
+.tl{
+  display:grid;grid-template-columns:repeat(6,1fr);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;
+  margin-top:20px;
+}
+.tl-cell{
+  padding:14px 12px;background:var(--bg2);
+  border-right:1px solid var(--border);
+}
+.tl-cell:last-child{border-right:none;}
+.tl-t{display:block;font-size:11px;font-family:'Poppins',sans-serif;font-weight:600;color:var(--yellow);margin-bottom:4px;}
+.tl-a{font-size:11.5px;color:var(--muted);line-height:1.45;}
+
+/* ── DOS/DONTS ── */
+.dlist{list-style:none;display:flex;flex-direction:column;gap:0;}
+.dlist li{
+  font-size:13.5px;color:var(--muted);
+  padding:9px 0;border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;gap:10px;line-height:1.5;
+}
+.dlist li:last-child{border-bottom:none;}
+.dlist.do li::before{content:'✓';color:var(--green);font-weight:700;font-size:13px;flex-shrink:0;margin-top:1px;}
+.dlist.dont li::before{content:'✗';color:var(--red);font-weight:700;font-size:13px;flex-shrink:0;margin-top:1px;}
+
+/* ── TOOLS ── */
+.tool-link{
+  display:flex;align-items:center;gap:12px;
+  padding:11px 0;border-bottom:1px solid var(--border);
+  transition:padding-left .2s;
+}
+.tool-link:last-child{border-bottom:none;}
+.tool-link:hover{padding-left:5px;}
+.te{font-size:20px;flex-shrink:0;}
+.tn{font-size:13.5px;font-weight:500;color:var(--text);display:block;margin-bottom:1px;}
+.td{font-size:12px;color:var(--muted);}
+.ta{margin-left:auto;font-size:13px;color:var(--faint);}
+
+/* ── FAQ ── */
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{
+  font-size:14.5px;font-weight:500;color:var(--text);
+  padding:16px 0;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  user-select:none;
+}
+.fq-ico{
+  width:24px;height:24px;flex-shrink:0;
+  background:var(--bg3);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:var(--muted);
+  transition:transform .25s,background .2s;
+}
+.faq-item.open .fq-ico{transform:rotate(45deg);background:var(--yellow-soft);color:var(--yellow);}
+.faq-a{
+  font-size:13.5px;color:var(--muted);line-height:1.75;
+  max-height:0;overflow:hidden;
+  transition:max-height .35s ease,padding .2s;
+}
+.faq-item.open .faq-a{max-height:250px;padding-bottom:16px;}
+
+/* ── MESS TABLE ── */
+.mess-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 0;border-bottom:1px solid var(--border);
+}
+.mess-row:last-child{border-bottom:none;}
+.mess-meal{font-size:13.5px;color:var(--text);font-weight:500;}
+.mess-time{font-size:12.5px;color:var(--yellow);font-family:'Poppins',sans-serif;font-weight:600;}
+
+/* ── STAT STRIP ── */
+.stat-strip{
+  display:flex;gap:0;
+  border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;margin-bottom:36px;
+}
+.stat-cell{
+  flex:1;padding:22px 20px;
+  background:var(--bg2);
+  border-right:1px solid var(--border);
+  text-align:center;
+}
+.stat-cell:last-child{border-right:none;}
+.stat-val{
+  font-family:'Poppins',sans-serif;
+  font-size:28px;font-weight:700;
+  color:var(--yellow);display:block;margin-bottom:4px;
+}
+.stat-lbl{font-size:11.5px;color:var(--muted);font-weight:500;}
+
+/* ── CALLOUT ── */
+.callout{
+  background:var(--yellow-soft);
+  border:1px solid rgba(245,200,66,0.2);
+  border-radius:var(--r);
+  padding:22px 24px;
+  display:flex;align-items:flex-start;gap:14px;
+  margin-bottom:20px;
+}
+.callout-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.callout-text{font-size:13.5px;color:var(--muted);line-height:1.7;}
+.callout-text strong{color:var(--text);font-weight:600;}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  padding:48px 32px 32px;
+}
+.footer-inner{max-width:860px;margin:0 auto;}
+.footer-top{
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:36px;
+  padding-bottom:36px;border-bottom:1px solid var(--border);
+  margin-bottom:28px;
+}
+.footer-brand{
+  font-family:'Poppins',sans-serif;
+  font-size:20px;font-weight:700;color:var(--text);
+  display:flex;align-items:center;gap:8px;margin-bottom:8px;
+}
+.footer-desc{font-size:13px;color:var(--muted);max-width:260px;line-height:1.7;}
+.footer-cols{display:flex;gap:52px;flex-wrap:wrap;}
+.footer-col h5{
+  font-size:11px;font-weight:600;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--faint);margin-bottom:14px;
+}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:9px;}
+.footer-col ul li a{font-size:13px;color:var(--muted);transition:color .2s;}
+.footer-col ul li a:hover{color:var(--text);}
+.footer-bottom{
+  font-size:12px;color:var(--faint);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+}
+
+/* ── reveal ── */
+.r{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s;}
+.r.on{opacity:1;transform:translateY(0);}
+
+/* ── responsive ── */
+@media(max-width:700px){
+  .nav-pills{display:none;}
+  .hero{padding:60px 20px 40px;}
+  .wrap{padding:0 20px;}
+  .grid-2,.grid-3{grid-template-columns:1fr;}
+  .tl{grid-template-columns:repeat(3,1fr);}
+  footer{padding-left:20px;padding-right:20px;}
+  .stat-strip{flex-direction:column;}
+  .stat-cell{border-right:none;border-bottom:1px solid var(--border);}
+  .stat-cell:last-child{border-bottom:none;}
+  .footer-top{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo"><span>🧭</span> Campus Compass</div>
+  <div class="nav-pills">
+    <a href="#academic">Academics</a>
+    <a href="#clubs">Clubs</a>
+    <a href="#campus">Campus</a>
+    <a href="#survival">Survival</a>
+    <a href="#tools">Tools</a>
+    <!-- High-converting CTA added right inside your pill chain -->
+    <a href="#survival" class="nav-cta">Survival Kit 🛟</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    For Freshers joining Amrita Amaravati —> <b>Batch 2026-2030</b> 
+  </div>
+  <h1>
+  <span class="intro-text"><b>Hey, fresher!👋</b></span>
+  <span class="hi">Welcome to Amrita.</span>
+</h1>
+
+  <p class="hero-sub">
+    you're probably excited, nervous, and have <strong>zero idea</strong> what the next 4 years look like. that's exactly why this exists. everything you need to know — written like a senior would actually tell you.
+  </p>
+  <div class="hero-btns">
+  <a href="#academic" class="btn btn-yellow">
+    <span>Start Reading 📖</span>
+  </a>
+  
+  <a href="#survival" class="btn btn-outline">
+    <span>Survival Kit 🛟</span>
+  </a>
+</div>
+  <div class="hero-note">
+    <div class="hero-stat"><strong>6</strong> sections covered</div>
+    <div class="hero-stat"><strong>Real</strong> advice from seniors</div>
+    <div class="hero-stat">🏛️ Amrita Vishwa Vidyapeetham, Amaravati</div>
+  </div>
+</div>
+
+<!-- ─────── ANNOUNCEMENTS TRACKER ─────── -->
+<div class="wrap" style="padding-top: 20px;">
+  <div class="announcement-box">
+    <div class="announcement-main">
+      <div class="live-pulse"></div>
+      <div class="announcement-text">
+        Important Update: Website is live for freshers to use!
+      </div>
+    </div>
+    <div class="announcement-date">June 01, 2026</div>
+  </div>
+</div>
+
+<!-- ─────── ACADEMICS ─────── -->
+<div class="wrap section" id="academic">
+  <div class="sec-tag">02 — academics</div>
+  <h2 class="sec-title">How college actually works?</h2>
+  <p class="sec-desc">No fluff. Here's the real deal about classes, exams, attendance, and keeping your CGPA alive.</p>
+  <div class="divider"></div>
+
+  <div class="stat-strip r">
+    <div class="stat-cell">
+      <span class="stat-val">75%</span>
+      <span class="stat-lbl">Min. attendance or else you're barred from exams</span>
+    </div>
+    
+    <div class="stat-cell">
+      <span class="stat-val">8+</span>
+      <span class="stat-lbl">CGPA that opens every door</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-val">Sem 1</span>
+      <span class="stat-lbl">When habits get set. don't waste it.</span>
+    </div>
+  </div>
+
+  <div class="card r" style="margin-bottom:14px;">
+    <span class="card-icon">🎓</span>
+    <div class="card-title">Branches offered at Amrita Amaravati</div>
+    <div class="card-body">Pick your lane and own it. Here's what's available:</div>
+    <div class="branch-pills">
+      <span class="pill y">CSE</span>
+      <span class="pill y">CSE — AI</span>
+      <span class="pill y">CCE</span>
+      <span class="pill y">AI - DS</span>
+      <span class="pill y">ECE</span>
+      <span class="pill y">CSE — Quantum Computing</span>
+    </div>
+  </div>
+
+  
+  <div class="grid-2 r" style="margin-bottom:14px;">
+    
+    <div class="card">
+      <span class="card-icon">📝</span>
+      <div class="card-title">Exam pattern — CIA + ESE</div>
+      <ul class="dlist">
+        <li>CIA = 70 marks (2 unit tests + assignments + quizzes + mid(20 marks)) + LABS</li>
+        <li>ESE = 30 marks (2-hour end semester exam)</li>
+        <li><br><br><i>Marks distribution might be varied according to the course</i></li>
+        <li>below 75% attendance = you're barred from ESE. no exceptions.</li>
+
+      </ul>
+    </div>
+    <div class="card">
+      <span class="card-icon">📈</span>
+      <div class="card-title">How to not ruin your CGPA</div>
+      <ul class="dlist do">
+        <li>don't underestimate so-called "easy" subjects</li>
+        <li>form a study group in the very first week</li>
+        <li>revise a little every day — not just before CIA</li>
+        <li>visit professors during office hours when stuck</li>
+        <li>a 9+ CGPA opens research, exchange, and placement doors</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card r">
+    <div class="card-title">📅 What a typical weekday looks like</div>
+    <div class="card-body" style="margin-bottom:0;">spoiler: It's busier than you think.</div>
+    <div class="tl">
+      <div class="tl-cell"><span class="tl-t">6:30 AM</span><span class="tl-a">Wake up + breakfast at mess</span></div>
+      <div class="tl-cell"><span class="tl-t">8:55 AM</span><span class="tl-a">First class — please don't be late</span></div>
+      <div class="tl-cell"><span class="tl-t">12:30 PM</span><span class="tl-a">Lunch<br>(may vary)</span></div>
+      <div class="tl-cell"><span class="tl-t">2:00 PM</span><span class="tl-a">Afternoon classes or lab sessions</span></div>
+      <div class="tl-cell"><span class="tl-t">5:30 PM</span><span class="tl-a">Sports, Clubs, Chilling</span></div>
+      <div class="tl-cell"><span class="tl-t">7:30 PM</span><span class="tl-a">Dinner + Study till 11</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────── CLUBS ─────── -->
+<div class="wrap section" id="clubs">
+  <div class="sec-tag">03 — club life</div>
+  <h2 class="sec-title">join a club.<br>Seriously!</h2>
+  <p class="sec-desc">your degree gets you the interview. what you did in clubs gets you the job. start in semester 1.</p>
+  <div class="divider"></div>
+
+  <div class="callout r">
+    <span class="callout-icon">🔥</span>
+    <div class="callout-text">
+      <strong>Student Council</strong> — the supreme governing student body of Amrita Amaravati. 
+      They bridge the gap between the administration and the student community, managing grand campus fests, student welfare initiatives, and core campus clubs. If you want to cultivate true leadership and build an elite network, <strong>target their recruitment cycles in your first semester.</strong>
+    </div>
+  </div>
+<!-- NrityaSparsh Advika ReLU  Avinya IEEE  Robotics Club Prachurya-->
+  <div class="card r" style="margin-bottom:14px;">
+    <div class="card-title" style="margin-bottom:16px;">clubs you should know about 👇</div>
+    <div class="list-rows">
+      <div class="list-row">
+        <div class="row-icon">⚡</div>
+        <div><div class="row-name">Chakravyuha Club</div><div class="row-desc">coding, hackathons, AI/ML, competitive programming</div></div>
+        <span class="row-badge y">featured ✦</span>
+      </div>
+      <div class="list-row">
+        <div class="row-icon">📸</div>
+        <div><div class="row-name">Drśya Club</div><div class="row-desc">campus shoots, events coverage, reels & content</div></div>
+        <span class="row-badge">creative</span>
+      </div>
+      <div class="list-row">
+        <div class="row-icon">💻</div>
+        <div>
+          <div class="row-name">Prachurya Club</div>
+          <div class="row-desc">the foundational logic collective parsing core algorithms, programmatic competitive sprints, and development basics.</div>
+        </div>
+        <span class="row-badge">technical</span>
+      </div>
+      <div class="list-row">
+        <div class="row-icon">🎵</div>
+        <div><div class="row-name">Saptaswara Club</div><div class="row-desc">western & classical, jam sessions, live performances</div></div>
+        <span class="row-badge">cultural</span>
+      </div>
+      <div class="list-row">
+      <div class="row-icon">💃</div>
+        <div>
+          <div class="row-name">Nrityasparsh Club</div>
+          <div class="row-desc">the premier dance assembly choreography, cultural stage shows, and classical to contemporary rhythms.</div>
+        </div>
+        <span class="row-badge">cultural</span>
+      </div>
+
+      <div class="list-row">
+        <div class="row-icon">🎨</div>
+        <div>
+          <div class="row-name">Advika Club</div>
+          <div class="row-desc">the fine arts society exploring visual canvas design, sketching, digital art media, and creative installations.</div>
+        </div>
+        <span class="row-badge">creative</span>
+      </div>
+
+      <div class="list-row">
+        <div class="row-icon">🧠</div>
+        <div>
+          <div class="row-name">ReLU Club</div>
+          <div class="row-desc">the predictive intelligence engine optimizing deep architectures, neural networks, and raw model training workflows.</div>
+        </div>
+        <span class="row-badge">technical</span>
+      </div>
+
+      <div class="list-row">
+        <div class="row-icon">🎙️</div>
+        <div>
+          <div class="row-name">Avinya Club</div>
+          <div class="row-desc">the linguistic forum sharpening public oratory, creative writing tracks, debate panels, and corporate presentation style.</div>
+        </div>
+        <span class="row-badge">literary</span>
+      </div>
+
+      <div class="list-row">
+        <div class="row-icon">🌐</div>
+        <div>
+          <div class="row-name">IEEE Student Branch</div>
+          <div class="row-desc">international engineering ecosystems hosting global technical papers, research symposiums, and networking circuits.</div>
+        </div>
+        <span class="row-badge">technical</span>
+      </div>
+      
+      <div class="list-row">
+        <div class="row-icon">🍀</div>
+        <div><div class="row-name">Swachh Amrita Club</div><div class="row-desc">driving campus sustainability, waste management, and green cleanliness initiatives to keep our environment pristine.</div></div>
+        <span class="row-badge">green</span>
+      </div>
+      <div class="list-row">
+        <div class="row-icon">⚽</div>
+        <div><div class="row-name">Avisruta Club</div><div class="row-desc">cricket, football, basketball, badminton — all in</div></div>
+        <span class="row-badge">sports</span>
+      </div>
+
+      <div class="list-row">
+        <div class="row-icon">🤖</div>
+        <div><div class="row-name">Robotics Club</div><div class="row-desc">hardware builds, RoboWars, automation</div></div>
+        <span class="row-badge">technical</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2 r">
+    <div class="card">
+      <span class="card-icon">🚪</span>
+      <div class="card-title">how to get in?</div>
+      <ul class="dlist">
+        <li>recruitment opens in august–september</li>
+        <li>prepare a short intro about yourself + interests</li>
+        <li>shortlisting is based on passion, not marks</li>
+        <li>most clubs let you re-apply next year too</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="card-icon">💡</span>
+      <div class="card-title">why it actually matters</div>
+      <ul class="dlist">
+        <li>leadership & teamwork that CVs scream for</li>
+        <li>real projects with real impact (not just college projects)</li>
+        <li>network that follows you into your career</li>
+        <li>inter-college trips, events, fests — the fun stuff</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ─────── CAMPUS ─────── -->
+<div class="wrap section" id="campus">
+  <div class="sec-tag">04 — campus & hostel</div>
+  <h2 class="sec-title">your new home.</h2>
+  <p class="sec-desc">from mess timings to settling in — what your day-to-day actually looks like inside the campus.</p>
+  <div class="divider"></div>
+
+  <div class="grid-2 r" style="margin-bottom:14px;">
+    <div class="card">
+      <span class="card-icon">🍽️</span>
+      <div class="card-title">Mess timings</div>
+      <div class="mess-row"><span class="mess-meal">Breakfast</span><span class="mess-time">7:30 – 9:00 AM</span></div>
+      <div class="mess-row"><span class="mess-meal">Lunch</span><span class="mess-time">12:30 – 2:00 PM</span></div>
+      <div class="mess-row"><span class="mess-meal">Dinner</span><span class="mess-time">7:30 – 9:00 PM</span></div>
+      <div class="mess-row"><span class="mess-meal">Canteen</span><span class="mess-time">open all day ✓</span></div>
+      <div style="margin-top:12px;font-size:12.5px;color:var(--muted);">north + south indian options. only veg. outside food not allowed in hostel rooms.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏠</span>
+      <div class="card-title">Hostel life</div>
+      <ul class="dlist">
+        <li>Room Occupency - preferrable</li>
+        <li>Wi-fi provided</li>
+        <li>24/7 wardens for anything urgent</li>
+        <li>laundry services available on campus</li>
+        <li>high-voltage items(like kettle, etc) are strictly banned.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid-3 r" style="margin-bottom:14px;">
+    <div class="card">
+      <span class="card-icon">🏫</span>
+      <div class="card-title">Campus stuff</div>
+      <ul class="dlist">
+        <li>~12hrs central library + reading room</li>
+        <li>health centre / medical on campus</li>
+        <li>ATM on campus</li>
+        <li>All types of orders allowed</li>
+        <li>Autos available for transportation</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="card-icon">📶</span>
+      <div class="card-title">Staying connected</div>
+      <ul class="dlist">
+        <li>high-speed wi-fi across campus</li>
+        <li>save auto contacts early</li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="card-icon">🗓️</span>
+      <div class="card-title">Week 1 checklist</div>
+      <ul class="dlist">
+        <li>explore the full campus</li>
+        <li>make connections</li>
+        <li>find the health centre location</li>
+        <li>meet your class advisor</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ─────── SURVIVAL ─────── -->
+<div class="wrap section" id="survival">
+  <div class="sec-tag">05 — survival kit</div>
+  <h2 class="sec-title">stuff seniors wish<br>they'd known. 🛟</h2>
+  <p class="sec-desc">the unwritten rules. the mistakes that cost people their CGPA. the things that take most freshers a full semester to figure out.</p>
+  <div class="divider"></div>
+
+  <div class="grid-2 r" style="margin-bottom:14px;">
+    <div class="card">
+      <div class="card-title" style="color:var(--green);margin-bottom:14px;">✓ do these things</div>
+      <ul class="dlist do">
+        <li>always carry your ID card. everywhere. always.</li>
+        <li>introduce yourself to professors in week 1</li>
+        <li>join at least one tech + one cultural club</li>
+        <li>keep a planner for assignment deadlines</li>
+        <li>build a daily 1-hour revision habit from day 1</li>
+        <li>attend orientation events — that's where you meet your people</li>
+        <li>talk to 2nd & 3rd year seniors. they know everything.</li>
+        <li>save lab records before the deadline, not after</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color:var(--red);margin-bottom:14px;">✗ avoid these mistakes</div>
+      <ul class="dlist dont">
+        <li>don't skip classes in your first month — habits set fast</li>
+        <li>don't ignore CA dates — missing one tanks your grade</li>
+        <li>don't track attendance only at week 8. too late.</li>
+        <li>don't take on too many commitments in sem 1</li>
+        <li>don't sacrifice sleep. 6 hours minimum. always.</li>
+        <li>don't leave lab records to the night before</li>
+        <li>don't compare yourself to toppers — just beat yesterday you</li>
+        <li>don't be afraid to ask "dumb" questions in class. everyone's lost.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid-3 r">
+    <div class="card">
+      <span class="card-icon">⏱️</span>
+      <div class="card-title">time management</div>
+      <div class="card-body">try the 50/10 rule — 50 mins focus, 10 min break. batch similar tasks on the same day. protect sunday mornings for a weekly review. 2 hours focused &gt; 6 hours distracted.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🧠</span>
+      <div class="card-title">mental health</div>
+      <div class="card-body">homesickness is normal and temporary. everyone's feeling it. call home as much as you need to. your mind is your most important resource.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🤝</span>
+      <div class="card-title">build your people</div>
+      <div class="card-body">college friends become professional references. help others in labs & assignments. your batch is your support system for the next 4 years. invest in those relationships from day 1.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────── TOOLS ─────── -->
+<div class="wrap section" id="tools">
+  <div class="sec-tag">06 — tools & resources</div>
+  <h2 class="sec-title">bookmark these. now. 🔖</h2>
+  <p class="sec-desc">apps, websites, and portals every amrita student — especially CSE — should have from day one.</p>
+  <div class="divider"></div>
+
+  <div class="grid-2 r" style="margin-bottom:14px;">
+    <div class="card">
+      <div class="card-title" style="margin-bottom:14px;">🏛️ college portals</div>
+      <a href="https://students.amrita.edu/client/index" target="_blank" class="tool-link">
+        <span class="te">🎓</span>
+        <div><span class="tn">Student Portal</span><span class="td">payments, gatepass, everything</span></div>
+        <span class="ta">↗</span>
+      </a>
+      <a href="https://aumscn.amrita.edu/cas/login?service=https%3A%2F%2Faumscn.amrita.edu%2Faums%2FJsp%2FCore_Common%2Findex.jsp" target="_blank" class="tool-link">
+        <span class="te">📝</span>
+        <div><span class="tn">AUMS</span><span class="td">attendance, grades, timetable, everything</span></div>
+        <span class="ta">↗</span>
+      </a>
+    </div>
+    <div class="card">
+      <div class="card-title" style="margin-bottom:14px;">📖 learning platforms</div>
+      <a href="https://nptel.ac.in" target="_blank" class="tool-link">
+        <span class="te">🏛️</span>
+        <div><span class="tn">NPTEL</span><span class="td">free IIT/IISc certifications</span></div>
+        <span class="ta">↗</span>
+      </a>
+      <a href="https://leetcode.com" target="_blank" class="tool-link">
+        <span class="te">⚔️</span>
+        <div><span class="tn">LeetCode</span><span class="td">start from sem 2. non-negotiable for placements.</span></div>
+        <span class="ta">↗</span>
+      </a>
+      <a href="https://geeksforgeeks.org" target="_blank" class="tool-link">
+        <span class="te">💻</span>
+        <div><span class="tn">GeeksforGeeks</span><span class="td">DSA, OS, DBMS, CN — your theory exam best friend</span></div>
+        <span class="ta">↗</span>
+      </a>
+    </div>
+    <div class="card">
+      <div class="card-title" style="margin-bottom:14px;">🛠️ productivity</div>
+      <a href="https://notion.so" target="_blank" class="tool-link">
+        <span class="te">📝</span>
+        <div><span class="tn">Notion</span><span class="td">notes, planners, project wikis — all in one</span></div>
+        <span class="ta">↗</span>
+      </a>
+      <a href="https://github.com" target="_blank" class="tool-link">
+        <span class="te">🐙</span>
+        <div><span class="tn">GitHub</span><span class="td">portfolio + version control — set up in week 1</span></div>
+        <span class="ta">↗</span>
+      </a>
+      <a href="https://code.visualstudio.com" target="_blank" class="tool-link">
+        <span class="te">🔵</span>
+        <div><span class="tn">VS Code</span><span class="td">the only code editor you'll ever need. install it.</span></div>
+        <span class="ta">↗</span>
+      </a>
+    </div>
+    <div class="card">
+      <div class="card-title" style="margin-bottom:14px;">❓ FAQ — things everyone asks</div>
+      <div class="faq-item">
+        <div class="faq-q">How many times can I go out? <span class="fq-ico">+</span></div>
+        <div class="faq-a">You have monthly<br> 2 Outpasses, 2 Homepasses<br> & Emergency pass - Emergency purposes only</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">When will I get ID card & uniform <span class="fq-ico">+</span></div>
+        <div class="faq-a">It usually takes time, but you will get within your first semester exam.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">When should I start prepping for placements? <span class="fq-ico">+</span></div>
+        <div class="faq-a">start building DSA on leetcode from sem 3, and your github portfolio from sem 2. placements happen in year 4 but the prep takes 2 years. don't panic, but don't wait either.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">what laptop should I bring? <span class="fq-ico">+</span></div>
+        <div class="faq-a">minimum 8GB RAM (16 is better), i5/ryzen 5 or above, 256GB+ SSD. battery life and portability matter more than GPU for most CSE coursework. don't buy a gaming laptop just to look cool.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">🧭 Campus Compass</div>
+        <div class="footer-desc">a fresher guide for amrita vishwa vidyapeetham, amaravati — written for the batch of july 2026.</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Sections</h5>
+          <ul>
+            <li><a href="#academic">Academics</a></li>
+            <li><a href="#clubs">Club Life</a></li>
+            <li><a href="#campus">Campus & Hostel</a></li>
+            <li><a href="#survival">Survival Kit</a></li>
+            <li><a href="#tools">Tools</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="https://www.amrita.edu" target="_blank">Amrita Official Site</a></li>
+            <li><a href="https://nptel.ac.in" target="_blank">NPTEL</a></li>
+            <li><a href="https://leetcode.com" target="_blank">LeetCode</a></li>
+            <li><a href="https://github.com" target="_blank">GitHub</a></li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>built for the campus compasss · chakravyuha technical club · amrita amaravati 2026</span>
+      <span>made for the batch of 2026 🧡</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  });
+});
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.r').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
